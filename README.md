@@ -1,6 +1,6 @@
 # TRG_DOYS_SDG_PROJECT
 
-** Project Overview:**
+**Project Overview:**
  
 The sdg5_db is a relational database designed to track, manage, and analyze workplace dynamics with a focus on Sustainable Development Goal 5: Gender Equality. It monitors employee demographics, departmental structures, and workplace complaints—specifically targeting issues like harassment, promotion bias, and pay equality.
 
@@ -26,13 +26,13 @@ This system is built to help organizations identify patterns of discrimination a
 - rules – Workplace policies (e.g., harassment, pay equality)
 - workplace_complaint – Employee complaints and case status
 
-** Relationships**
+**Relationships**
 
 - Employees belong to departments and companies
 - Complaints are linked to employees and specific rules
 - Foreign key constraints enforce referential integrity
 
-Technologies Used:
+**Technologies Used:**
 
 - MySQL / MariaDB
 - phpMyAdmin
@@ -72,6 +72,7 @@ Github
 3.2. ER Diagram
 5.1. Conclusion
 PPT
+Github
 
 **Macabangon, John Carlo:**
 3.2. ER Diagram
