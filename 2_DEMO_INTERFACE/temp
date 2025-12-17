@@ -1,1 +1,70 @@
-a
+-- SDG 5 DATABASE: FINAL DEMONSTRATION SCRIPT (CLI)
+-- ==========================================================
+
+-- ----------------------------------------------------------
+-- PART 1: DEMONSTRATING FR3 (Transactional Stored Procedure)
+-- ----------------------------------------------------------
+SELECT '--- DEMONSTRATING FR3: Add_New_Employee Procedure ---' AS 'Step';
+
+-- 1.1 Show successful transaction
+-- We will add a new female employee to a high-level position.
+CALL Add_New_Employee(888, 'Gabriela Silang', 30, 'Master\'s Degree', 'F', 'Operations Director', '2025-05-20', 1, 1);
+
+-- Verify the data was committed to the table
+SELECT * FROM employee WHERE employee_id = 888;
+
+-- 1.2 Show Procedure Validation (Error Handling)
+-- Attempting to add an employee with an invalid sex code 'Z'.
+-- This proves the procedure prevents inconsistent data.
+SELECT 'TESTING INVALID GENDER VALIDATION:' AS 'Action';
+CALL Add_New_Employee(889, 'Wrong Data', 25, 'High School', 'Z', 'Staff', '2025-01-01', 1, 1);
+
+
+-- ----------------------------------------------------------
+-- PART 2: DEMONSTRATING FR4 (Three Report Queries)
+-- ----------------------------------------------------------
+SELECT '--- DEMONSTRATING FR4: Analytical Reporting ---' AS 'Step';
+
+-- Report Query 1: Comprehensive Complaint Position Analysis
+-- Shows the distribution of complaint types based on Sex and Job Position Level.
+SELECT 'REPORT 1: Complaint Type vs Gender/Position' AS 'Description';
+SELECT * FROM comprehensive_complaint_position_analysis;
+
+-- Report Query 2: Employee Position Level Breakdown
+-- Categorizes all 50+ employees into 'High Position' or 'Low Position' based on Job Title.
+SELECT 'REPORT 2: Organizational Position Distribution' AS 'Description';
+SELECT 
+    position_level, 
+    sex, 
+    COUNT(*) as Total_Employees
+FROM employee_position_levels
+GROUP BY position_level, sex;
+
+-- Report Query 3: Resolved Case Summary
+-- Shows how many gender-related complaints have been successfully resolved per company.
+SELECT 'REPORT 3: Resolution Tracking per Company' AS 'Description';
+SELECT 
+    c.company_name, 
+    wc.status, 
+    COUNT(wc.complaint_id) as Case_Count
+FROM workplace_complaint wc
+JOIN employee e ON wc.employee_id = e.employee_id
+JOIN company c ON e.company_id = c.company_id
+WHERE wc.status = 'resolved'
+GROUP BY c.company_name;
+
+
+-- ----------------------------------------------------------
+-- PART 3: VALIDATION (Triggers & Constraints)
+-- ----------------------------------------------------------
+SELECT '--- VALIDATION: Triggers & Constraints ---' AS 'Step';
+
+-- Test Trigger: Prevent invalid status update
+SELECT 'TESTING STATUS TRIGGER (Expected to fail):' AS 'Action';
+UPDATE workplace_complaint SET status = 'deleted' WHERE complaint_id = 1;
+
+-- Test Constraint: Cascade Delete
+-- Deleting an employee should automatically remove their complaints.
+SELECT 'TESTING CASCADE DELETE (Employee 1):' AS 'Action';
+DELETE FROM employee WHERE employee_id = 1;
+SELECT COUNT(*) FROM workplace_complaint WHERE employee_id = 1; -- Should return 0
