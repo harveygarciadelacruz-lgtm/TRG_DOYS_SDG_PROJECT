@@ -50,39 +50,39 @@ This system is built to help organizations identify patterns of discrimination a
 **5. Individual Contributions:**
 
 **Andrada, Jack Zyruz:**
-2.1. Functional Requirements and Non-Functional Requirements
-2.3. Schema Normalization Analysis
-3.1. Core DBMS Concepts Used 
-3.2. ER Diagram
-4.1. Test Cases
-4.2. ACID Compliance Test
+2.1. Functional Requirements and Non-Functional Requirements,
+2.3. Schema Normalization Analysis,
+3.1. Core DBMS Concepts Used,
+3.2. ER Diagram,
+4.1. Test Cases,
+4.2. ACID Compliance Test,
 
 **Condino, Zyann Kyle:**
-3.1. Core DBMS Concepts Used 
-3.2. ER Diagram
-3.3. Transaction Flowchart
-4.1. Test Cases
-4.2. ACID Compliance Test
+3.1. Core DBMS Concepts Used,
+3.2. ER Diagram,
+3.3. Transaction Flowchart,
+4.1. Test Cases,
+4.2. ACID Compliance Test,
 Github
 
 **Dela Cruz, Harvey:**
-1.1 Project Overview & UN SDG Target
-1.2. Problem Statement
-3.1. Core DBMS Concepts Used 
-3.2. ER Diagram
-5.1. Conclusion
-PPT
+1.1 Project Overview & UN SDG Target,
+1.2. Problem Statement,
+3.1. Core DBMS Concepts Used, 
+3.2. ER Diagram,
+5.1. Conclusion,
+PPT,
 Github
 
 **Macabangon, John Carlo:**
-3.2. ER Diagram
-3.3. Transaction Flowchart
-4.2. ACID Compliance Test
+3.2. ER Diagram,
+3.3. Transaction Flowchart,
+4.2. ACID Compliance Test,
 PPT
 
 **Monte, Manuel:**
-2.1. Functional Requirements and Non-Functional Requirements
-2.2. Data Requirements 
+2.1. Functional Requirements and Non-Functional Requirements,
+2.2. Data Requirements, 
 4.2. ACID Compliance Test
 
 
